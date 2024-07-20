@@ -38,6 +38,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
+        if (lb.SelectedItem is null) return;
         var dialog = MessageBox.Show("Are sure to delete this item?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
         if (dialog == MessageBoxResult.Yes)
         {
@@ -50,12 +51,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 }
             db.SaveChanges();
             RefreshSource();
+        lb.SelectedItems.Clear();
         }
+
         Car = new();
     }
 
     private void Update_Click(object sender, RoutedEventArgs e)
     {
+        if (lb.SelectedItem is null) return;
         var dialog = MessageBox.Show("Are sure to update this item?", "Update", MessageBoxButton.YesNo, MessageBoxImage.Warning);
         if (dialog == MessageBoxResult.Yes)
         {
@@ -71,6 +75,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 }
             db.SaveChanges();
             RefreshSource();
+            lb.SelectedItems.Clear();
+
         }
         Car = new();
     }

@@ -11,7 +11,7 @@
             <ColumnDefinition Width="1.42*"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListView SelectionChanged="ListView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="-20 25 0 25"  Width="425" HorizontalAlignment="Center" ItemsSource="{Binding Cars}">
+        <ListView x:Name="lb" SelectionChanged="ListView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="-20 25 0 25"  Width="425" HorizontalAlignment="Center" ItemsSource="{Binding Cars}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Make" Width="112" DisplayMemberBinding="{Binding Make}"/>
